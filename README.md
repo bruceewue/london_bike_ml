@@ -2,17 +2,30 @@
 
 ## Problem Description
 This project aims to predict the bike sharing demand in London. The prediction is based on weather conditions and the date & time. The data used for this project is from the `london_merged.csv` file which contains historical data of weather conditions, date, time, and the number of bikes shared.
+## Dataset
+
+The dataset used in this project is `london_merged.csv`. This dataset contains the hourly data from three years (2015 - 2017) of the bike sharing program in London. The data was collected from different weather stations around the city.
+
+Here are the columns in the dataset:
+
+- `timestamp`: The date and hour of the data in format `dd/mm/yyyy hh:mm`.
+- `cnt`: The count of new bike shares.
+- `t1`: Real temperature in Celsius.
+- `t2`: Temperature in Celsius "feels like".
+- `hum`: Humidity in percentage.
+- `wind_speed`: Wind speed in km/h.
+- `weather_code`: Category of the weather (1: clear ; 2: scattered clouds / few clouds ; 3: broken clouds ; 4: cloudy ; 7: rain/ light Rain shower ; 10: rain with thunderstorm ; 26: snowfall ; 94: Freezing Fog).
+- `is_holiday`: Boolean field - 1 holiday / 0 non holiday.
+- `is_weekend`: Boolean field - 1 if the day is weekend.
+- `season`: Season (0:spring ; 1:summer ; 2:fall ; 3:winter).
+
+Please note that the `cnt` column is the target variable you will predict.
 
 ## Installation and Setup
 
 This project uses Poetry for dependency management. To install the dependencies and activate the environment, follow these steps:
 
-1. Install Poetry if you haven't already:
-
-```sh
-curl -sSL https://install.python-poetry.org | python -
-```
-
+1. Install Poetry if you haven't already
 2. Navigate to the project directory and install the dependencies:
 
 ```sh
@@ -83,3 +96,9 @@ curl -X POST -H "Content-Type: application/json" -d '{
     "season": 1
 }' https://utnnwrhlhe.execute-api.eu-west-2.amazonaws.com/beta/
 ```
+
+## Final Result
+
+Here is the final result of the AWS Lambda deployment:
+
+![AWS Lambda Deployment](lambda.png)
